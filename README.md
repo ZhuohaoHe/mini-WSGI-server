@@ -1,15 +1,15 @@
-# Mini WGSI Server
+# Mini WSGI Server
 
-This is a simple WGSI server, according to tutorials [Let’s Build A Web Server](https://ruslanspivak.com/lsbaws-part1/)
+This is a simple WSGI server, according to tutorials [Let’s Build A Web Server](https://ruslanspivak.com/lsbaws-part1/)
 
 > What is WSGI?
 >
 > Python Web Server Gateway Interface (WSGI),
 > which allowed developers to separate choice of a Web framework from choice of a Web server. 
 
-This mini WGSI server can run our basic Web application written with Web framework such as Flask, Django, or some other Python WSGI framework
+This mini WSGI server can run our basic Web application written with Web framework such as Flask, Django, or some other Python WSGI framework
 
-There are some simple examples of application in `/test_app`, which can be used to test WGSI server.
+There are some simple examples of application in `/test_app`, which can be used to test WSGI server.
 
 ## Extra Feature
 
@@ -32,7 +32,7 @@ Take Flask Application as the first example:
 Ask the server to load the ‘app’ callable from the python module `test_app/flask_app`. (the parameter should be `path/to/module/module_name:app`)
 
 ```
-$ python3 WGSI_server.py test_app/flask_app:app
+$ python3 WSGI_server.py test_app/flask_app:app
 
 WSGIServer: Serving HTTP on port 8888 ...
 ```
