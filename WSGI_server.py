@@ -117,8 +117,8 @@ class WSGIServer(object):
     def start_response(self, status, response_headers, exc_info=None):
         # Add necessary server headers
         server_headers = [
-            ('Date', 'Mon, 15 Jul 2019 5:54:48 GMT'),
-            ('Server', 'WSGIServer 0.2'),
+            ('Date', 'Thu, 2 Mar 2023 15:40:48 CST'),
+            ('Server', 'WSGIServer 0.4'),
         ]
         self.headers_set = [status, response_headers + server_headers]
         # To adhere to WSGI specification the start_response must return

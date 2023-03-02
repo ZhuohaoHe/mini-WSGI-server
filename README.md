@@ -15,15 +15,15 @@ There are some simple examples of application in `/test_app`, which can be used 
 
 1. Implement concurrent server using os.fork()
 
-When a process forks a new process it becomes a parent process to that newly forked child process. So in server, every parent process does now is accept a new connection from a client, fork a child to handle the client request, and loop over to accept a new client connection
+    When a process forks a new process it becomes a parent process to that newly forked child process. So in server, every parent process does now is accept a new connection from a client, fork a child to handle the client request, and loop over to accept a new client connection
 
 2. Solve the zombie problem which happend when forking a child process and it exits and the parent process doesn’t wait for it and doesn’t collect its termination status, it becomes a zombie.
 
-The method to deal with zombie problem is using the SIGCHLD event handler to asynchronously wait for a terminated child to get its termination status
+    The method to deal with zombie problem is using the SIGCHLD event handler to asynchronously wait for a terminated child to get its termination status
 
 3. Handle with a flood of SIGCHLD signals that caused by connecting so many simultaneous connection. 
 
-The solution to the problem is to set up a SIGCHLD event handler but instead of wait use a waitpid system call with a WNOHANG option in a loop to make sure that all terminated child processes are taken care of.
+    The solution to the problem is to set up a SIGCHLD event handler but instead of wait use a waitpid system call with a WNOHANG option in a loop to make sure that all terminated child processes are taken care of.
 
 ## How to use
 
@@ -55,8 +55,8 @@ $ curl -v http://localhost:8888/hello
 < HTTP/1.1 200 OK
 < Content-Type: text/plain; charset=utf-8
 < Content-Length: 24
-< Date: Mon, 15 Jul 2019 5:54:48 GMT
-< Server: WSGIServer 0.2
+< Date: Thu, 2 Mar 2023 15:40:48 CST
+< Server: WSGIServer 0.4
 < 
 Hello world from Flask!
 * Connection #0 to host localhost left intact
