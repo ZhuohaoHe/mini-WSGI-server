@@ -39,7 +39,6 @@ class WSGIServer(object):
         while True:
             # New client connection
             
-            
             signal.signal(signal.SIGCHLD, self.grim_reaper)
 
             try:
@@ -173,7 +172,10 @@ if __name__ == '__main__':
         sys.exit('Provide a WSGI application object as module:callable')
     app_path = sys.argv[1]
     module, application = app_path.split(':')
-    module = __import__(module)
+    # change sys path to different folder to import module
+    # module = path/to/module/module_name rsplit : split from tail <--
+    sys.path.insert(1, module.rsplit('/', 1)[0])
+    module = __import__(module.rsplit('/', 1)[-1])
     application = getattr(module, application)
     httpd = make_server(SERVER_ADDRESS, application)
     print(f'WSGIServer: Serving HTTP on port {PORT} ...\n')
